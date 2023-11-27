@@ -8,12 +8,20 @@ using Npgsql;
 [Config(typeof(Config))]
 [MemoryDiagnoser]
 public class Benchmarks {
-    private const string ConnectionString = "Host=localhost;Port=5433;Username=postgres;Password=postgres;Database=sk-pg";
+    private const string ConnectionString = "Host=localhost;Port=5432;Username=postgres;Password=postgres;Database=sk-pg";
     private static PostgresMemoryStore store;
     private static List<MemoryRecord> records;
 
     [GlobalSetup]
     public async Task Setup() {
+        await using (var con = new NpgsqlConnection(ConnectionString))
+        {
+            await con.OpenAsync();
+            await using var cmd = con.CreateCommand();
+            cmd.CommandText = "CREATE EXTENSION IF NOT EXISTS vector;";
+            await cmd.ExecuteNonQueryAsync();
+        }
+
         store = new PostgresMemoryStore(ConnectionString, 512);
         await store.DeleteCollectionAsync("test");
         await store.CreateCollectionAsync("test");

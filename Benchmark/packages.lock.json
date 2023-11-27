@@ -45,6 +45,18 @@
           "System.Text.Json": "8.0.0"
         }
       },
+      "Microsoft.SemanticKernel.Connectors.Memory.Postgres": {
+        "type": "Direct",
+        "requested": "[1.0.0-beta8, )",
+        "resolved": "1.0.0-beta8",
+        "contentHash": "B6qoYv06BW/r7FfNY/k1eyryCfzKp4tUrzpa9otCAMqQnkURTljwALdalfqbY6liJoaPPfoz34hR6r9R6+OZBw==",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "7.0.0",
+          "Microsoft.SemanticKernel.Core": "1.0.0-beta8",
+          "Microsoft.SemanticKernel.Plugins.Memory": "1.0.0-beta8",
+          "Pgvector": "0.1.4"
+        }
+      },
       "BenchmarkDotNet.Annotations": {
         "type": "Transitive",
         "resolved": "0.13.10",
@@ -67,8 +79,8 @@
       },
       "Microsoft.Bcl.AsyncInterfaces": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "3WA9q9yVqJp222P3x1wYIGDAkpjAku0TMUaaQV22g6L67AI0LdOIrVS7Ht2vJfLHGSPVuqN94vIr15qn+HEkHw=="
+        "resolved": "7.0.0",
+        "contentHash": "3aeMZ1N0lJoSyzqiP03hqemtb1BijhsJADdobn/4nsMJ8V1H+CrpuduUe4hlRdx+ikBQju1VGjMD1GJ3Sk05Eg=="
       },
       "Microsoft.Bcl.HashCode": {
         "type": "Transitive",
@@ -226,6 +238,37 @@
         "resolved": "5.0.0",
         "contentHash": "VyPlqzH2wavqquTcYpkIIAQ6WdenuKoFN0BdYBbCWsclXacSOHNQn66Gt4z5NBqEYW0FAPm5rlvki9ZiCij5xQ=="
       },
+      "Microsoft.SemanticKernel.Abstractions": {
+        "type": "Transitive",
+        "resolved": "1.0.0-beta8",
+        "contentHash": "aYnkqiUCvzwEUr5VqsCGCQzuhwVYCwu4r++/VIft4JVlY0whCIHZkB8tQZ8t8k3DAi0LKDMS/pGU3yU9mln8FA==",
+        "dependencies": {
+          "Microsoft.Bcl.AsyncInterfaces": "6.0.0",
+          "Microsoft.Bcl.HashCode": "1.1.0",
+          "Microsoft.Extensions.Logging.Abstractions": "6.0.4",
+          "System.Text.Json": "6.0.8"
+        }
+      },
+      "Microsoft.SemanticKernel.Core": {
+        "type": "Transitive",
+        "resolved": "1.0.0-beta8",
+        "contentHash": "ot+nIbDSl6gDRjHUBSB4oGlaClGZeLDJOHYdHAjgO+/JwLsdPGyW9fkPVUerA3wPDv571TZBG7lxsTZBhRZNtQ==",
+        "dependencies": {
+          "Microsoft.SemanticKernel.Abstractions": "1.0.0-beta8",
+          "System.Diagnostics.DiagnosticSource": "6.0.1"
+        }
+      },
+      "Microsoft.SemanticKernel.Plugins.Memory": {
+        "type": "Transitive",
+        "resolved": "1.0.0-beta8",
+        "contentHash": "jsgG6yZFUXS9ioFjYc9a+BiV3zAvHVI5qR8SsKhIl9Wo8iZ1kAQlcDsLN7mDjmkuYkgWIc/vZjK+WKzsuICVhw==",
+        "dependencies": {
+          "Microsoft.SemanticKernel.Abstractions": "1.0.0-beta8",
+          "Microsoft.SemanticKernel.Core": "1.0.0-beta8",
+          "System.Numerics.Tensors": "8.0.0-rc.2.23479.6",
+          "System.Text.Json": "6.0.8"
+        }
+      },
       "Microsoft.Win32.Registry": {
         "type": "Transitive",
         "resolved": "5.0.0",
@@ -272,8 +315,11 @@
       },
       "System.Diagnostics.DiagnosticSource": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "c9xLpVz6PL9lp/djOWtk5KPDZq3cSYpmXoJQY524EOtuFl5z9ZtsotpsyrDW40U1DRnQSYvcPKEUV0X//u6gkQ=="
+        "resolved": "6.0.1",
+        "contentHash": "KiLYDu2k2J82Q9BJpWiuQqCkFjRBWVq4jDzKKWawVi9KWzyD0XG3cmfX0vqTQlL14Wi9EufJrbL0+KCLTbqWiQ==",
+        "dependencies": {
+          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
+        }
       },
       "System.Management": {
         "type": "Transitive",
@@ -292,8 +338,8 @@
       },
       "System.Numerics.Tensors": {
         "type": "Transitive",
-        "resolved": "8.0.0",
-        "contentHash": "fhODzTe9ON9IzmRfyVeA6L8yXOciMtpq1YufkRVBliggcVKZE+XDxqIn46+yF4PWR6wNPuDpXtPpuY86VcKxUA=="
+        "resolved": "8.0.0-rc.2.23479.6",
+        "contentHash": "wWMbHrwDKLTVRi3eiXj/IcxOPmcT4jZt9O3LpGqriawYgtRy0upySVJYZEfe3lCM7d2i48W6PFBaLxAcgB6pYg=="
       },
       "System.Reflection.Metadata": {
         "type": "Transitive",
@@ -345,40 +391,6 @@
         "type": "Transitive",
         "resolved": "4.5.4",
         "contentHash": "zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg=="
-      },
-      "Microsoft.SemanticKernel.Abstractions": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "[8.0.0, )",
-          "Microsoft.Bcl.HashCode": "[1.1.0, )",
-          "Microsoft.Extensions.Logging.Abstractions": "[8.0.0, )",
-          "System.Diagnostics.DiagnosticSource": "[8.0.0, )",
-          "System.Text.Json": "[8.0.0, )"
-        }
-      },
-      "Microsoft.SemanticKernel.Connectors.Memory.Postgres": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.Bcl.AsyncInterfaces": "[8.0.0, )",
-          "Microsoft.SemanticKernel.Core": "[1.0.0-beta8, )",
-          "Microsoft.SemanticKernel.Plugins.Memory": "[1.0.0-beta8, )",
-          "Pgvector": "[0.1.4, )"
-        }
-      },
-      "Microsoft.SemanticKernel.Core": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.SemanticKernel.Abstractions": "[1.0.0-beta8, )"
-        }
-      },
-      "Microsoft.SemanticKernel.Plugins.Memory": {
-        "type": "Project",
-        "dependencies": {
-          "Microsoft.SemanticKernel.Abstractions": "[1.0.0-beta8, )",
-          "Microsoft.SemanticKernel.Core": "[1.0.0-beta8, )",
-          "System.Numerics.Tensors": "[8.0.0, )",
-          "System.Text.Json": "[8.0.0, )"
-        }
       }
     }
   }

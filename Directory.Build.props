@@ -35,7 +35,8 @@
     <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
 
     <!-- Restore the exact packages as listed in the lock file -->
-    <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode>
+    <!-- We do want to have different dependency trees in this repo for benchmarking -->
+    <!-- <RestoreLockedMode Condition="'$(ContinuousIntegrationBuild)' == 'true'">true</RestoreLockedMode> -->
   </PropertyGroup>
 
   <ItemDefinitionGroup>
